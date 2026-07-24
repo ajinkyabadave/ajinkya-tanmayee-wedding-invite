@@ -32,24 +32,36 @@
   <main class="card">
     <div class="frame">
 
-      <!-- mango-leaf toran -->
-      <svg class="toran" viewBox="0 0 600 34" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0 2 H600" stroke="#C99A3B" stroke-width="1.4" fill="none" opacity="0.7"/>
+      <!-- marigold garland (bandanwar) -->
+      <svg class="garland" viewBox="0 0 600 62" preserveAspectRatio="none" aria-hidden="true">
         <defs>
-          <g id="leaf">
-            <path d="M0 2 C-9 12 -9 26 0 32 C9 26 9 12 0 2 Z" fill="#B4127A"/>
-            <path d="M0 8 L0 30" stroke="#C99A3B" stroke-width="0.8" fill="none"/>
+          <radialGradient id="mari" cx="50%" cy="42%" r="60%">
+            <stop offset="0%" stop-color="#F7C053"/>
+            <stop offset="55%" stop-color="#F5A623"/>
+            <stop offset="100%" stop-color="#B85C00"/>
+          </radialGradient>
+          <g id="marigold">
+            <circle r="8" fill="url(#mari)"/>
+            <circle r="8" fill="none" stroke="#B85C00" stroke-width="0.6" opacity="0.5"/>
+            <circle r="3.4" fill="#B85C00" opacity="0.55"/>
+          </g>
+          <g id="mleaf">
+            <path d="M0 0 C-5 6 -5 15 0 19 C5 15 5 6 0 0 Z" fill="#2E7D32"/>
+            <path d="M0 3 L0 17" stroke="#1B5E20" stroke-width="0.7"/>
           </g>
         </defs>
-        <use href="#leaf" x="24"/><use href="#leaf" x="72"/><use href="#leaf" x="120"/>
-        <use href="#leaf" x="168"/><use href="#leaf" x="216"/><use href="#leaf" x="264"/>
-        <use href="#leaf" x="312"/><use href="#leaf" x="360"/><use href="#leaf" x="408"/>
-        <use href="#leaf" x="456"/><use href="#leaf" x="504"/><use href="#leaf" x="552"/>
-        <g fill="#C99A3B">
-          <circle cx="48" cy="4" r="2.2"/><circle cx="96" cy="4" r="2.2"/><circle cx="144" cy="4" r="2.2"/>
-          <circle cx="192" cy="4" r="2.2"/><circle cx="240" cy="4" r="2.2"/><circle cx="288" cy="4" r="2.2"/>
-          <circle cx="336" cy="4" r="2.2"/><circle cx="384" cy="4" r="2.2"/><circle cx="432" cy="4" r="2.2"/>
-          <circle cx="480" cy="4" r="2.2"/><circle cx="528" cy="4" r="2.2"/><circle cx="576" cy="4" r="2.2"/>
+        <!-- draping string -->
+        <path d="M0 6 Q150 34 300 20 Q450 6 600 30" fill="none" stroke="#1B5E20" stroke-width="1.4" opacity="0.7"/>
+        <!-- hanging leaf + marigold clusters -->
+        <g>
+          <use href="#mleaf" x="40"  y="18"/><use href="#marigold" x="40"  y="40"/>
+          <use href="#mleaf" x="110" y="24"/><use href="#marigold" x="110" y="47"/>
+          <use href="#mleaf" x="180" y="20"/><use href="#marigold" x="180" y="42"/>
+          <use href="#mleaf" x="250" y="16"/><use href="#marigold" x="250" y="38"/>
+          <use href="#mleaf" x="320" y="18"/><use href="#marigold" x="320" y="40"/>
+          <use href="#mleaf" x="390" y="22"/><use href="#marigold" x="390" y="45"/>
+          <use href="#mleaf" x="460" y="20"/><use href="#marigold" x="460" y="42"/>
+          <use href="#mleaf" x="530" y="26"/><use href="#marigold" x="530" y="49"/>
         </g>
       </svg>
 
@@ -57,16 +69,14 @@
       <div class="ganpati reveal">
         <div class="ganesha-wrap"><img src="assets/ganesha.svg" alt="Shree Ganesha" /></div>
         <p class="mantra"><span class="side">॥</span> Shree Ganeshaya Namah <span class="side">॥</span></p>
+        <p class="shubh"><span class="side">॥</span> Shubh Vivah <span class="side">॥</span></p>
       </div>
 
       <!-- Intro -->
       <p class="eyebrow reveal">With the blessings of the Almighty</p>
       <p class="intro reveal">
-        <strong>Pradnya &amp; Pramod Badave</strong>
-        <br />and<br />
-        <strong>Chitra &amp; Sanjay Chitnis</strong>
-        <br />request the pleasure of your company<br />
-        as they joyfully celebrate the wedding of their children
+        The <strong>Badave</strong> &amp; <strong>Chitnis</strong> families
+        warmly invite you to celebrate the wedding of
       </p>
 
       <div class="divider reveal" aria-hidden="true">

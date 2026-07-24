@@ -12,6 +12,13 @@
   --cream-2: #F7EEDF;
   --plum: #6B1548;
   --ink: #4a2036;
+  --maroon: #7C1D2B;
+  --maroon-deep: #5E0F1E;
+  --marigold: #E07B0E;
+  --marigold-mid: #F5A623;
+  --marigold-core: #B85C00;
+  --leaf-green: #2E7D32;
+  --leaf-green-dark: #1B5E20;
   --maxw: 620px;
 }
 
@@ -52,23 +59,36 @@ body::before {
 
 .frame {
   position: relative;
-  border: 1.5px solid rgba(201,154,59,0.55);
+  border: 2px solid var(--maroon);
   border-radius: 6px;
-  padding: 34px 22px 40px;
+  padding: 20px 22px 40px;
   background:
     linear-gradient(var(--cream-2), var(--cream));
-  box-shadow: 0 10px 40px rgba(107,21,72,0.10), inset 0 0 0 4px rgba(252,246,238,0.9), inset 0 0 0 5.5px rgba(201,154,59,0.35);
+  box-shadow:
+    0 10px 40px rgba(107,21,72,0.14),
+    inset 0 0 0 4px rgba(252,246,238,0.9),
+    inset 0 0 0 6px var(--gold),
+    inset 0 0 0 8px rgba(124,29,43,0.85);
 }
 /* little gold corner flourishes */
 .frame::before, .frame::after {
   content: "";
   position: absolute;
-  width: 26px; height: 26px;
-  border: 1.5px solid var(--gold);
-  opacity: 0.7;
+  width: 30px; height: 30px;
+  border: 1.6px solid var(--gold);
+  opacity: 0.85;
+  z-index: 2;
 }
-.frame::before { top: 8px; left: 8px; border-right: none; border-bottom: none; border-radius: 6px 0 0 0; }
-.frame::after  { bottom: 8px; right: 8px; border-left: none; border-top: none; border-radius: 0 0 6px 0; }
+.frame::before { top: 12px; left: 12px; border-right: none; border-bottom: none; border-radius: 6px 0 0 0; }
+.frame::after  { bottom: 12px; right: 12px; border-left: none; border-top: none; border-radius: 0 0 6px 0; }
+
+/* -------- marigold garland (bandanwar) across the top -------- */
+.garland {
+  display: block;
+  width: calc(100% + 16px);
+  margin: -12px -8px 8px;
+  height: 62px;
+}
 
 /* -------- toran (mango-leaf string) -------- */
 .toran {
@@ -95,22 +115,35 @@ body::before {
 }
 .mantra .side { color: var(--magenta); opacity: 0.7; }
 
+/* Shubh Vivah — the auspicious-marriage heading */
+.shubh {
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  color: var(--maroon);
+  font-size: 1.6em;
+  letter-spacing: 0.06em;
+  margin: 8px 0 2px;
+}
+.shubh .side { color: var(--gold-dark); font-weight: 400; }
+
 /* -------- generic pieces -------- */
 .eyebrow {
   text-align: center;
   color: var(--magenta-deep);
-  letter-spacing: 0.28em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  font-size: 0.62em;
+  font-size: 0.6em;
   font-family: "Playfair Display", serif;
-  margin: 0 0 8px;
+  margin: 6px 0 6px;
 }
 
 .intro {
   text-align: center;
   color: var(--ink);
-  font-size: 1.02em;
-  max-width: 30em;
+  font-size: 0.94em;
+  font-style: italic;
+  max-width: 26em;
   margin: 0 auto;
 }
 .intro strong { color: var(--plum); font-weight: 600; white-space: nowrap; }
