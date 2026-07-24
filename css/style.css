@@ -85,10 +85,22 @@ body::before {
 /* -------- marigold garland (bandanwar) across the top -------- */
 .garland {
   display: block;
-  width: calc(100% + 16px);
-  margin: -12px -8px 8px;
-  height: 62px;
+  width: calc(100% + 44px);
+  margin: -20px -22px 6px;
+  height: 118px;
 }
+
+/* script tagline — "forever, together with our families" */
+.tagline {
+  text-align: center;
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  color: var(--maroon);
+  font-size: 1.02em;
+  letter-spacing: 0.02em;
+  margin: 2px 0 10px;
+}
+.tagline .heart { color: var(--magenta); font-style: normal; }
 
 /* -------- toran (mango-leaf string) -------- */
 .toran {
@@ -231,6 +243,15 @@ body::before {
   font-weight: 700;
   letter-spacing: 0.02em;
   margin: 0 0 4px;
+}
+/* decorative :: … :: flanks around the event name, like the reference */
+.event .ev-name::before,
+.event .ev-name::after {
+  content: "::";
+  color: var(--gold-dark);
+  font-weight: 400;
+  margin: 0 0.5em;
+  vertical-align: 0.06em;
 }
 .event .ev-sub { color: var(--magenta); font-style: italic; font-size: 0.9em; margin: 0 0 8px; }
 .event .ev-when {

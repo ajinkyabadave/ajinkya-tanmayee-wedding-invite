@@ -32,37 +32,72 @@
   <main class="card">
     <div class="frame">
 
-      <!-- marigold garland (bandanwar) -->
-      <svg class="garland" viewBox="0 0 600 62" preserveAspectRatio="none" aria-hidden="true">
+      <!-- marigold garland (bandanwar) with hanging strands + parrots -->
+      <svg class="garland" viewBox="0 0 600 118" preserveAspectRatio="none" aria-hidden="true">
         <defs>
           <radialGradient id="mari" cx="50%" cy="42%" r="60%">
             <stop offset="0%" stop-color="#F7C053"/>
             <stop offset="55%" stop-color="#F5A623"/>
             <stop offset="100%" stop-color="#B85C00"/>
           </radialGradient>
-          <g id="marigold">
-            <circle r="8" fill="url(#mari)"/>
-            <circle r="8" fill="none" stroke="#B85C00" stroke-width="0.6" opacity="0.5"/>
-            <circle r="3.4" fill="#B85C00" opacity="0.55"/>
+          <radialGradient id="pinkfl" cx="50%" cy="42%" r="60%">
+            <stop offset="0%" stop-color="#F7A8CE"/>
+            <stop offset="60%" stop-color="#E56AA6"/>
+            <stop offset="100%" stop-color="#B4127A"/>
+          </radialGradient>
+          <!-- one marigold bud -->
+          <g id="mari1">
+            <circle r="6.5" fill="url(#mari)"/>
+            <circle r="6.5" fill="none" stroke="#B85C00" stroke-width="0.5" opacity="0.5"/>
+            <circle r="2.6" fill="#B85C00" opacity="0.5"/>
           </g>
-          <g id="mleaf">
-            <path d="M0 0 C-5 6 -5 15 0 19 C5 15 5 6 0 0 Z" fill="#2E7D32"/>
-            <path d="M0 3 L0 17" stroke="#1B5E20" stroke-width="0.7"/>
+          <!-- one pink bud -->
+          <g id="pink1">
+            <circle r="5.5" fill="url(#pinkfl)"/>
+            <circle r="2.2" fill="#8E0C60" opacity="0.5"/>
+          </g>
+          <!-- small leaf -->
+          <g id="lf">
+            <path d="M0 0 C-4 5 -4 12 0 16 C4 12 4 5 0 0 Z" fill="#2E7D32"/>
+          </g>
+          <!-- a hanging strand: string of marigolds ending in a pink bloom -->
+          <g id="strand">
+            <line x1="0" y1="0" x2="0" y2="52" stroke="#1B5E20" stroke-width="1"/>
+            <use href="#mari1" x="0" y="8"/>
+            <use href="#mari1" x="0" y="22"/>
+            <use href="#mari1" x="0" y="36"/>
+            <use href="#pink1" x="0" y="50"/>
+          </g>
+          <!-- green parrot -->
+          <g id="parrot">
+            <ellipse cx="0" cy="0" rx="9" ry="6" fill="#2E7D32"/>
+            <path d="M6 -3 q10 -2 14 4 q-8 3 -14 0 Z" fill="#43A047"/>
+            <circle cx="-6" cy="-3" r="4.5" fill="#43A047"/>
+            <path d="M-10 -3 q-4 1 -1 4 q3 -1 2 -4 Z" fill="#E65100"/>
+            <circle cx="-7.5" cy="-4" r="1" fill="#1B1B1B"/>
+            <path d="M-2 5 l3 8 M2 5 l4 7" stroke="#8E0C60" stroke-width="1.4" fill="none"/>
           </g>
         </defs>
-        <!-- draping string -->
-        <path d="M0 6 Q150 34 300 20 Q450 6 600 30" fill="none" stroke="#1B5E20" stroke-width="1.4" opacity="0.7"/>
-        <!-- hanging leaf + marigold clusters -->
+
+        <!-- dense top band of foliage + blooms -->
+        <path d="M0 14 Q150 30 300 20 Q450 10 600 24" fill="none" stroke="#1B5E20" stroke-width="2.2" opacity="0.8"/>
         <g>
-          <use href="#mleaf" x="40"  y="18"/><use href="#marigold" x="40"  y="40"/>
-          <use href="#mleaf" x="110" y="24"/><use href="#marigold" x="110" y="47"/>
-          <use href="#mleaf" x="180" y="20"/><use href="#marigold" x="180" y="42"/>
-          <use href="#mleaf" x="250" y="16"/><use href="#marigold" x="250" y="38"/>
-          <use href="#mleaf" x="320" y="18"/><use href="#marigold" x="320" y="40"/>
-          <use href="#mleaf" x="390" y="22"/><use href="#marigold" x="390" y="45"/>
-          <use href="#mleaf" x="460" y="20"/><use href="#marigold" x="460" y="42"/>
-          <use href="#mleaf" x="530" y="26"/><use href="#marigold" x="530" y="49"/>
+          <use href="#lf" x="20" y="6"/><use href="#lf" x="70" y="4"/><use href="#lf" x="130" y="8"/>
+          <use href="#lf" x="200" y="4"/><use href="#lf" x="270" y="7"/><use href="#lf" x="340" y="5"/>
+          <use href="#lf" x="410" y="8"/><use href="#lf" x="480" y="4"/><use href="#lf" x="550" y="7"/>
+          <use href="#mari1" x="45"  y="16"/><use href="#pink1" x="95" y="18"/><use href="#mari1" x="165" y="15"/>
+          <use href="#pink1" x="235" y="17"/><use href="#mari1" x="305" y="15"/><use href="#pink1" x="375" y="18"/>
+          <use href="#mari1" x="445" y="16"/><use href="#pink1" x="515" y="18"/><use href="#mari1" x="575" y="16"/>
         </g>
+        <!-- hanging strands, alternating lengths -->
+        <use href="#strand" x="40"  y="20"/>
+        <use href="#strand" x="120" y="20" transform="translate(0,14)"/>
+        <use href="#strand" x="300" y="24"/>
+        <use href="#strand" x="480" y="20" transform="translate(0,14)"/>
+        <use href="#strand" x="560" y="24"/>
+        <!-- parrots perched on the band -->
+        <use href="#parrot" x="205" y="26"/>
+        <use href="#parrot" x="395" y="26" transform="scale(-1,1) translate(-790,0)"/>
       </svg>
 
       <!-- Ganpati invocation -->
@@ -70,6 +105,7 @@
         <div class="ganesha-wrap"><img src="assets/ganesha.svg" alt="Shree Ganesha" /></div>
         <p class="mantra"><span class="side">॥</span> Shree Ganeshaya Namah <span class="side">॥</span></p>
         <p class="shubh"><span class="side">॥</span> Shubh Vivah <span class="side">॥</span></p>
+        <p class="tagline">Forever, together with our families <span class="heart">♥</span></p>
       </div>
 
       <!-- Intro -->
