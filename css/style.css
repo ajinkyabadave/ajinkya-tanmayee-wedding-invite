@@ -90,6 +90,23 @@ body::before {
   height: 118px;
 }
 
+/* bottom corner motifs — kalash + paisley flourishes */
+.corner {
+  position: absolute;
+  bottom: 10px;
+  width: 78px;
+  height: 92px;
+  opacity: 0.92;
+  pointer-events: none;
+  z-index: 1;
+}
+.corner.left  { left: 10px; }
+.corner.right { right: 10px; transform: scaleX(-1); }
+
+@media (max-width: 400px) {
+  .corner { width: 62px; height: 74px; }
+}
+
 /* script tagline — "forever, together with our families" */
 .tagline {
   text-align: center;
