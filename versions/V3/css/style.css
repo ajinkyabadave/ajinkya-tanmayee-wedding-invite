@@ -1,0 +1,359 @@
+/* ============================================================
+   Ajinkya weds Tanmayee — shared styles
+   Palette sampled from the couple's TA mandala logo.
+   ============================================================ */
+:root {
+  --magenta: #B4127A;
+  --magenta-deep: #8E0C60;
+  --gold: #C99A3B;
+  --gold-light: #E6C36B;
+  --gold-dark: #9C6E1E;
+  --cream: #FCF6EE;
+  --cream-2: #F7EEDF;
+  --plum: #6B1548;
+  --ink: #4a2036;
+  --maroon: #7C1D2B;
+  --maroon-deep: #5E0F1E;
+  --marigold: #E07B0E;
+  --marigold-mid: #F5A623;
+  --marigold-core: #B85C00;
+  --leaf-green: #2E7D32;
+  --leaf-green-dark: #1B5E20;
+  --maxw: 620px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: "Cormorant Garamond", "Georgia", serif;
+  font-size: 20px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* soft radial glow + faint mandala watermark behind everything */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(120% 80% at 50% -10%, rgba(180,18,122,0.10), transparent 60%),
+    radial-gradient(100% 60% at 50% 110%, rgba(201,154,59,0.12), transparent 60%),
+    var(--cream);
+}
+
+/* -------- decorative frame / card -------- */
+.card {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 26px 20px 44px;
+  position: relative;
+}
+
+.frame {
+  position: relative;
+  border: 2px solid var(--maroon);
+  border-radius: 6px;
+  padding: 20px 22px 40px;
+  background:
+    linear-gradient(var(--cream-2), var(--cream));
+  box-shadow:
+    0 10px 40px rgba(107,21,72,0.14),
+    inset 0 0 0 4px rgba(252,246,238,0.9),
+    inset 0 0 0 6px var(--gold),
+    inset 0 0 0 8px rgba(124,29,43,0.85);
+}
+/* little gold corner flourishes */
+.frame::before, .frame::after {
+  content: "";
+  position: absolute;
+  width: 30px; height: 30px;
+  border: 1.6px solid var(--gold);
+  opacity: 0.85;
+  z-index: 2;
+}
+.frame::before { top: 12px; left: 12px; border-right: none; border-bottom: none; border-radius: 6px 0 0 0; }
+.frame::after  { bottom: 12px; right: 12px; border-left: none; border-top: none; border-radius: 0 0 6px 0; }
+
+/* -------- marigold garland (bandanwar) across the top -------- */
+.garland {
+  display: block;
+  width: calc(100% + 44px);
+  margin: -20px -22px 6px;
+  height: 118px;
+}
+
+/* bottom corner motifs — kalash + paisley flourishes */
+.corner {
+  position: absolute;
+  bottom: 10px;
+  width: 78px;
+  height: 92px;
+  opacity: 0.92;
+  pointer-events: none;
+  z-index: 1;
+}
+.corner.left  { left: 10px; }
+.corner.right { right: 10px; transform: scaleX(-1); }
+
+@media (max-width: 400px) {
+  .corner { width: 62px; height: 74px; }
+}
+
+/* script tagline — "forever, together with our families" */
+.tagline {
+  text-align: center;
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  color: var(--maroon);
+  font-size: 1.02em;
+  letter-spacing: 0.02em;
+  margin: 2px 0 10px;
+}
+.tagline .heart { color: var(--magenta); font-style: normal; }
+
+/* -------- toran (mango-leaf string) -------- */
+.toran {
+  display: block;
+  width: 100%;
+  height: 34px;
+  margin: -6px 0 6px;
+}
+
+/* -------- Ganpati header -------- */
+.ganpati { text-align: center; margin: 6px 0 14px; }
+.ganpati .ganesha-wrap {
+  width: 150px; margin: 0 auto 6px;
+  position: relative;
+}
+.ganpati .ganesha-wrap img { width: 100%; display: block; }
+.mantra {
+  font-family: "Playfair Display", serif;
+  color: var(--gold-dark);
+  letter-spacing: 0.14em;
+  font-size: 0.82em;
+  text-transform: uppercase;
+  margin: 4px 0 0;
+}
+.mantra .side { color: var(--magenta); opacity: 0.7; }
+
+/* Shubh Vivah — the auspicious-marriage heading */
+.shubh {
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  color: var(--maroon);
+  font-size: 1.6em;
+  letter-spacing: 0.06em;
+  margin: 8px 0 2px;
+}
+.shubh .side { color: var(--gold-dark); font-weight: 400; }
+
+/* -------- generic pieces -------- */
+.eyebrow {
+  text-align: center;
+  color: var(--magenta-deep);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-size: 0.6em;
+  font-family: "Playfair Display", serif;
+  margin: 6px 0 6px;
+}
+
+.intro {
+  text-align: center;
+  color: var(--ink);
+  font-size: 0.94em;
+  font-style: italic;
+  max-width: 26em;
+  margin: 0 auto;
+}
+.intro strong { color: var(--plum); font-weight: 600; white-space: nowrap; }
+
+.divider {
+  display: flex; align-items: center; justify-content: center;
+  gap: 10px; margin: 20px auto; color: var(--gold);
+}
+.divider::before, .divider::after {
+  content: ""; height: 1px; width: 60px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+.divider::after { background: linear-gradient(90deg, var(--gold), transparent); }
+.divider .lotus { width: 22px; height: 22px; }
+
+/* -------- couple names -------- */
+.couple { text-align: center; margin: 8px 0 4px; }
+.name {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 2.9em;
+  line-height: 1.02;
+  margin: 4px 0;
+  background: linear-gradient(180deg, var(--gold-light), var(--gold) 55%, var(--gold-dark));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+}
+/* shimmer sweep */
+.name::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(115deg, transparent 40%, rgba(255,255,255,0.75) 50%, transparent 60%);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+  background-size: 250% 100%;
+  animation: shimmer 5.5s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes shimmer { 0%,100% { background-position: 180% 0; } 50% { background-position: -60% 0; } }
+
+.weds {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  color: var(--magenta);
+  font-size: 1.25em;
+  letter-spacing: 0.05em;
+  margin: 2px 0;
+}
+.parents {
+  color: var(--gold-dark);
+  font-size: 0.86em;
+  font-style: italic;
+  margin: 2px 0 0;
+}
+.parents .of { color: var(--ink); opacity: 0.7; font-style: normal; font-size: 0.9em; }
+
+/* -------- events -------- */
+.events { margin: 26px 0 6px; }
+.section-title {
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  color: var(--magenta-deep);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.7em;
+  margin: 0 0 16px;
+}
+.event {
+  text-align: center;
+  padding: 16px 14px;
+  margin: 12px auto;
+  max-width: 26em;
+  border: 1px solid rgba(201,154,59,0.4);
+  border-radius: 4px;
+  background: rgba(255,255,255,0.45);
+  position: relative;
+}
+.event + .event { }
+.event .ev-name {
+  font-family: "Playfair Display", serif;
+  color: var(--plum);
+  font-size: 1.15em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0 0 4px;
+}
+/* decorative :: … :: flanks around the event name, like the reference */
+.event .ev-name::before,
+.event .ev-name::after {
+  content: "::";
+  color: var(--gold-dark);
+  font-weight: 400;
+  margin: 0 0.5em;
+  vertical-align: 0.06em;
+}
+.event .ev-sub { color: var(--magenta); font-style: italic; font-size: 0.9em; margin: 0 0 8px; }
+.event .ev-when {
+  color: var(--gold-dark);
+  font-size: 1.0em;
+  letter-spacing: 0.03em;
+  margin: 2px 0;
+}
+.event .ev-when .time { color: var(--magenta-deep); font-weight: 600; }
+
+/* -------- venue + maps -------- */
+.venue { text-align: center; margin: 26px 0 6px; }
+.venue .vlabel {
+  font-family: "Playfair Display", serif;
+  color: var(--magenta-deep);
+  letter-spacing: 0.2em; text-transform: uppercase;
+  font-size: 0.66em; margin: 0 0 6px;
+}
+.venue .vname { color: var(--plum); font-size: 1.15em; font-weight: 600; margin: 0; }
+.venue .vaddr { color: var(--ink); font-size: 0.92em; opacity: 0.85; margin: 2px 0 16px; }
+
+.maps-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  text-decoration: none;
+  background: linear-gradient(180deg, var(--magenta), var(--magenta-deep));
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  letter-spacing: 0.08em;
+  font-size: 0.78em;
+  text-transform: uppercase;
+  padding: 12px 22px;
+  border-radius: 40px;
+  box-shadow: 0 6px 18px rgba(142,12,96,0.35);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.maps-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(142,12,96,0.45); }
+.maps-btn svg { width: 16px; height: 16px; fill: #fff; }
+
+/* -------- logo footer -------- */
+.brand { text-align: center; margin: 34px 0 4px; }
+.brand img {
+  width: 190px; max-width: 62%;
+  filter: drop-shadow(0 8px 20px rgba(107,21,72,0.18));
+}
+.closing {
+  text-align: center;
+  color: var(--gold-dark);
+  font-style: italic;
+  font-size: 0.9em;
+  margin: 10px 0 0;
+}
+
+/* -------- floating petals -------- */
+.petals { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.petal {
+  position: absolute;
+  top: -30px;
+  font-size: 18px;
+  opacity: 0;
+  animation: fall linear infinite;
+  will-change: transform;
+}
+@keyframes fall {
+  0%   { transform: translateY(-30px) rotate(0deg);   opacity: 0; }
+  10%  { opacity: 0.55; }
+  90%  { opacity: 0.5; }
+  100% { transform: translateY(105vh) rotate(320deg);  opacity: 0; }
+}
+
+/* -------- scroll reveal -------- */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+/* -------- responsive -------- */
+@media (max-width: 400px) {
+  body { font-size: 18px; }
+  .name { font-size: 2.35em; }
+  .frame { padding: 28px 14px 34px; }
+}
+
+/* -------- reduced motion -------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .name::after { animation: none; }
+  .petals { display: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .mandala-spin { animation: none !important; }
+}

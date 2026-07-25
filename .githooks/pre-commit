@@ -43,4 +43,9 @@ rsync -a \
 
 git add "$dest"
 
+# Regenerate the clickable gallery (versions/index.html) so the new version
+# shows up, then stage it into this same commit.
+bash "$repo_root/.githooks/generate-gallery.sh"
+git add "$versions_dir/index.html"
+
 echo "pre-commit: snapshot saved to $dest/"
