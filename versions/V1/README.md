@@ -7,6 +7,47 @@ No build step, no dependencies (fonts load from Google Fonts CDN).
 > content edit, regenerated image), make a git commit with a short descriptive message
 > and push it, so the history captures every step.
 
+## Automatic version snapshots (`versions/V1`, `V2`, …)
+Every commit automatically saves a full, self-contained copy of the invite into a
+numbered folder under `versions/`. So instead of hunting through git history or checking
+out old commits, you can just open `versions/V3/index.html` in a browser to see exactly
+how the invite looked at that point.
+
+- The snapshot happens in a **`pre-commit` hook** (`.githooks/pre-commit`) and is folded
+  into the *same* commit — no extra step, and it's published the moment you `git push`.
+- The number auto-increments: first commit made `V1`, the next makes `V2`, and so on.
+- Each folder is a complete copy (HTML, `css/`, `js/`, `assets/`, posters) — open any
+  version standalone, no build needed.
+
+**Setup (once per clone):** the hook only runs if git is told where to find it. This repo
+is already configured, but if you clone fresh, run:
+```
+git config core.hooksPath .githooks
+```
+
+**Skip a snapshot for one commit** (e.g. a tiny typo fix you don't want versioned):
+```
+SKIP_VERSION_SNAPSHOT=1 git commit -m "..."
+```
+
+### Sharing the versions with someone (the easy way)
+There's an auto-generated **gallery page** at `versions/index.html` that lists every
+version as a big clickable link — newest on top. It regenerates on every commit, so new
+versions always show up automatically.
+
+Once **GitHub Pages** is on (see below), send this one link and they just tap a version:
+```
+https://ajinkyabadave.github.io/ajinkya-tanmayee-wedding-invite/versions/
+```
+No download, no git, works on a phone. (The site's *root* URL — without `/versions/` —
+is still the live invite itself, which is what you send to guests.)
+
+**Enable GitHub Pages once (in the browser):**
+1. Go to the repo on github.com → **Settings** → **Pages** (left sidebar).
+2. Under "Build and deployment", Source = **Deploy from a branch**.
+3. Branch = **main**, folder = **/ (root)** → **Save**.
+4. Wait ~1 minute, then the two links above go live.
+
 ## Two versions (same design, different events)
 | File | Who it's for | Events shown |
 |------|--------------|--------------|
