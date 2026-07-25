@@ -20,19 +20,20 @@
   .card {
     background:#fff; border:1px solid #eadfce; border-left:5px solid var(--gold);
     border-radius:12px; box-shadow:0 4px 14px rgba(122,31,43,.07); overflow:hidden;
+    padding:16px 20px 18px;
   }
-  .card .main {
-    display:flex; align-items:baseline; justify-content:space-between; gap:12px;
-    padding:18px 20px; text-decoration:none; color:inherit;
-  }
-  .card .main:hover { background:#fdf6ea; }
   .num { font-size:1.25rem; font-weight:bold; color:var(--maroon); }
-  .go { color:var(--gold); font-size:.95rem; white-space:nowrap; }
-  .sub {
-    display:block; padding:0 20px 14px; margin-top:-4px;
-    color:#8a6d2f; font-size:.85rem; text-decoration:none;
+  .choices { display:grid; gap:10px; margin-top:14px; }
+  @media (min-width:460px){ .choices { grid-template-columns:1fr 1fr; } }
+  .choice {
+    display:flex; flex-direction:column; gap:3px; text-decoration:none; color:inherit;
+    border:1px solid #eadfce; border-radius:10px; padding:12px 14px; background:#fdf9f1;
+    transition: background .15s, border-color .15s;
   }
-  .sub:hover { text-decoration:underline; }
+  .choice:hover { background:#fdf6ea; border-color:var(--gold); }
+  .choice .label { font-size:1.02rem; color:var(--maroon); font-weight:bold; }
+  .choice .desc { font-size:.82rem; color:#8a6d2f; }
+  .choice .go { font-size:.82rem; color:var(--gold); margin-top:2px; }
   .empty { text-align:center; color:#8a7; padding:40px; }
   footer { text-align:center; margin-top:34px; color:#9a8a7a; font-size:.8rem; }
 </style>
@@ -41,30 +42,54 @@
   <header>
     <h1>Ajinkya weds Tanmayee</h1>
     <p>Every saved version of the invitation.</p>
-    <p style="font-size:.85rem;color:#9a8a7a;">Tap a version to open it. Higher numbers are newer.</p>
+    <p style="font-size:.85rem;color:#9a8a7a;">Each version offers two invites — pick the one you want. Higher numbers are newer.</p>
     <div class="rule"></div>
   </header>
   <ul>
     <li class="card">
-      <a class="main" href="V3/index.html">
-        <span class="num">Version 3</span>
-        <span class="go">Open the invite →</span>
-      </a>
-      <a class="sub" href="V3/wedding.html">wedding-day-only version →</a>
+      <span class="num">Version 3</span>
+      <div class="choices">
+        <a class="choice" href="V3/index.html">
+          <span class="label">Full celebration</span>
+          <span class="desc">Seemant Poojan, Sangeet &amp; Wedding · 4–5 Sep</span>
+          <span class="go">Open →</span>
+        </a>
+        <a class="choice" href="V3/wedding.html">
+          <span class="label">Wedding day only</span>
+          <span class="desc">Wedding ceremony · 5 Sep</span>
+          <span class="go">Open →</span>
+        </a>
+      </div>
     </li>
     <li class="card">
-      <a class="main" href="V2/index.html">
-        <span class="num">Version 2</span>
-        <span class="go">Open the invite →</span>
-      </a>
-      <a class="sub" href="V2/wedding.html">wedding-day-only version →</a>
+      <span class="num">Version 2</span>
+      <div class="choices">
+        <a class="choice" href="V2/index.html">
+          <span class="label">Full celebration</span>
+          <span class="desc">Seemant Poojan, Sangeet &amp; Wedding · 4–5 Sep</span>
+          <span class="go">Open →</span>
+        </a>
+        <a class="choice" href="V2/wedding.html">
+          <span class="label">Wedding day only</span>
+          <span class="desc">Wedding ceremony · 5 Sep</span>
+          <span class="go">Open →</span>
+        </a>
+      </div>
     </li>
     <li class="card">
-      <a class="main" href="V1/index.html">
-        <span class="num">Version 1</span>
-        <span class="go">Open the invite →</span>
-      </a>
-      <a class="sub" href="V1/wedding.html">wedding-day-only version →</a>
+      <span class="num">Version 1</span>
+      <div class="choices">
+        <a class="choice" href="V1/index.html">
+          <span class="label">Full celebration</span>
+          <span class="desc">Seemant Poojan, Sangeet &amp; Wedding · 4–5 Sep</span>
+          <span class="go">Open →</span>
+        </a>
+        <a class="choice" href="V1/wedding.html">
+          <span class="label">Wedding day only</span>
+          <span class="desc">Wedding ceremony · 5 Sep</span>
+          <span class="go">Open →</span>
+        </a>
+      </div>
     </li>
   </ul>
   <footer>This page is generated automatically — the newest version is always at the top.</footer>
