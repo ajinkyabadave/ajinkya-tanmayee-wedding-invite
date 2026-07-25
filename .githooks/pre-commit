@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+#
+# pre-commit: snapshot the whole invite into versions/V<N>/ and fold it into
+# this same commit, so every commit produces a browsable version folder.
+#
+# Disable for a single commit with:  SKIP_VERSION_SNAPSHOT=1 git commit ...
+#
+set -euo pipefail
+
+if [ "${SKIP_VERSION_SNAPSHOT:-0}" = "1" ]; then
+  exit 0
+fi
+
+repo_root="$(git rev-parse --show-toplevel)"
+cd "$repo_root"
+
+versions_dir="versions"
+mkdir -p "$versions_dir"
+
+# Highest existing V<N> -> next number (V1 if none exist yet).
+last=0
+for d in "$versions_dir"/V*/; do
+  [ -d "$d" ] || continue
+  n="$(basename "$d")"
+  n="${n#V}"
+  case "$n" in
+    ''|*[!0-9]*) continue ;;
+  esac
+  [ "$n" -gt "$last" ] && last="$n"
+done
+next=$((last + 1))
+dest="$versions_dir/V$next"
+
+# Copy every tracked + staged file EXCEPT the versions folder itself and git
+# internals, preserving directory structure. Uses rsync so nested dirs
+# (css/, js/, assets/, reference/) come along.
+rsync -a \
+  --exclude ".git/" \
+  --exclude ".githooks/" \
+  --exclude "versions/" \
+  --exclude ".DS_Store" \
+  ./ "$dest/"
+
+git add "$dest"
+
+echo "pre-commit: snapshot saved to $dest/"
